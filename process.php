@@ -1,4 +1,8 @@
 <?php
+  
+    if (!isset($_SESSION)) {
+      session_start();
+    } 
 
     $function = $_POST['function'];
     
@@ -50,7 +54,7 @@
 				} 
 			 
         	
-        	 fwrite(fopen('chat.txt', 'a'), "<span>". $nickname . "</span>" . $message = str_replace("\n", " ", $message) . "\n"); 
+        	 fwrite(fopen('chat.txt', 'a'), "<span style='color: " . $_SESSION['color'] . ";'><b>". $nickname . "</b></span>" . $message = str_replace("\n", " ", $message) . "\n"); 
 		 }
         	 break;
     	
